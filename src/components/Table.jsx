@@ -75,12 +75,19 @@ export const Table = () => {
                 <div className="col text-center"><p>{value.trialID}</p></div>
                 
                 <div className="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-                <div className='row '>
-                <div className="col text-center " ><p >{value.trialSites.siteId}</p></div>
-                <div className="col text-center"><p>{value.trialSites.status}</p></div>
-                <div className="col text-center"><p>{value.trialSites.phase}</p></div>
-                <div className="col text-center"><p>{value.trialSites.noOfCandidates}</p></div>
-                </div>
+               
+                {
+                    value.trialSites.map((item)=>{
+                 return (    
+                     item?
+                    <div className='row '> 
+                <div className="col text-center " ><p >{item.siteId}</p></div>
+                <div className="col text-center"><p>{item.status}</p></div>
+                <div className="col text-center"><p>{value.phase}</p></div>
+                <div className="col text-center"><p>{value.noOfCandidates}</p></div>
+                </div>  :"" 
+                    )})   
+            }
                 </div>
                 </div>
                 </div>
